@@ -31,7 +31,7 @@ import java.io.PrintWriter;
  * @Description:
  */
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class CustomSecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private HrService hrService;
 

@@ -15,6 +15,8 @@ import java.util.List;
  */
 public interface MenuMapper extends BaseMapper<Menu> {
     int deleteByPrimaryKey(Integer id);
+    @Override
+    int insert(Menu record);
 
     int insertSelective(Menu record);
 
@@ -25,4 +27,6 @@ public interface MenuMapper extends BaseMapper<Menu> {
     int updateByPrimaryKey(Menu record);
 
     List<Menu> getMenusByHrId(Integer id);
+
+    List<Menu> getAllMenusWithRole();
 }
