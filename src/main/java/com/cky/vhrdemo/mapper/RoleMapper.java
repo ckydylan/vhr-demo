@@ -1,18 +1,16 @@
 package com.cky.vhrdemo.mapper;
 
-import com.cky.vhrdemo.entity.Role;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-/**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author dylan
- * @since 2020-04-19
- */
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.cky.vhrdemo.entity.Role;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
 public interface RoleMapper extends BaseMapper<Role> {
     int deleteByPrimaryKey(Integer id);
+
+    int insert(Role record);
 
     int insertSelective(Role record);
 
@@ -21,4 +19,7 @@ public interface RoleMapper extends BaseMapper<Role> {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+    @Select("select * from role")
+    List<Role> getAllRoles();
 }

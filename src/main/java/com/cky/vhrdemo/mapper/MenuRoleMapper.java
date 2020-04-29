@@ -1,7 +1,8 @@
 package com.cky.vhrdemo.mapper;
 
-import com.cky.vhrdemo.entity.MenuRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.cky.vhrdemo.entity.MenuRole;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -21,4 +22,8 @@ public interface MenuRoleMapper extends BaseMapper<MenuRole> {
     int updateByPrimaryKeySelective(MenuRole record);
 
     int updateByPrimaryKey(MenuRole record);
+
+    void deleteByRid(Integer rid);
+
+    Integer insertRecord(@Param("rid") Integer rid, @Param("mids") Integer[] mids);
 }

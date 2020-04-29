@@ -19,6 +19,15 @@
     delete from menu_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
+    <delete id="deleteByRid">
+    delete from menu_role where rid=#{rid}
+  </delete>
+    <insert id="insertRecord">
+        insert into menu_role (mid,rid) values
+        <foreach collection="mids" separator="," item="mid">
+            (#{mid},#{rid})
+        </foreach>
+    </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cky.vhrdemo.entity.MenuRole" useGeneratedKeys="true">
         insert into menu_role
         <trim prefix="(" suffix=")" suffixOverrides=",">

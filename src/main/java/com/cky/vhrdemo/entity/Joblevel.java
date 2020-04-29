@@ -19,21 +19,24 @@ import java.util.Date;
  * </p>
  *
  * @author dylan
- * @since 2020-04-23
+ * @since 2020-04-25
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="Position对象", description="")
-public class Position implements Serializable {
+@ApiModel(value="Joblevel对象", description="")
+public class Joblevel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "职位")
+    @ApiModelProperty(value = "职称名称")
     private String name;
+
+    @TableField("titleLevel")
+    private String titleLevel;
 
     @TableField("createDate")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "Asia/Shanghai")
