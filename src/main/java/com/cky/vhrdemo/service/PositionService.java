@@ -2,6 +2,7 @@ package com.cky.vhrdemo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cky.vhrdemo.entity.Position;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -23,4 +24,8 @@ public interface PositionService extends IService<Position> {
     Integer deletePositionById(Integer id);
 
     Integer deletePositionsByIds(Integer[] ids);
+
+    PageInfo<Position> getPositionByPage(Integer page , Integer size);
+
+    int addPositions(List<Position> positions);
 }

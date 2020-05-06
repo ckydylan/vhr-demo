@@ -39,4 +39,6 @@ public interface PositionMapper extends BaseMapper<Position> {
             "</foreach>",
             "</script>" })
     int deletePositionsByIds(Integer[] ids);
+
+    Integer batchInsert(List<Position> positions);
 }

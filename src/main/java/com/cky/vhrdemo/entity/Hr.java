@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * <p>
@@ -56,6 +57,8 @@ public class Hr implements Serializable, UserDetails {
     private String userface;
 
     private String remark;
+
+    private List<Role> roles;
 
 
     @Override

@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cky.vhrdemo.entity.Position;
 import com.cky.vhrdemo.mapper.PositionMapper;
 import com.cky.vhrdemo.service.PositionService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -44,5 +46,15 @@ public class PositionServiceImpl extends ServiceImpl<PositionMapper, Position> i
     @Override
     public Integer deletePositionsByIds(Integer[] ids) {
         return positionMapper.deletePositionsByIds(ids);
+    }
+    @Override
+    public PageInfo<Position> getPositionByPage(Integer page ,Integer size){
+        PageHelper.startPage(page,size);
+        List<Position> allPosition = positionMapper.getAllPosition();
+        return new PageInfo<>(allPosition,size);
+    }
+    @Override
+    public int addPositions(List<Position> positions) {
+        return positionMapper.batchInsert(positions);
     }
 }

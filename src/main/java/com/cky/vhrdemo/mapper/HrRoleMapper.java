@@ -1,7 +1,8 @@
 package com.cky.vhrdemo.mapper;
 
-import com.cky.vhrdemo.entity.HrRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.cky.vhrdemo.entity.HrRole;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -21,4 +22,8 @@ public interface HrRoleMapper extends BaseMapper<HrRole> {
     int updateByPrimaryKeySelective(HrRole record);
 
     int updateByPrimaryKey(HrRole record);
+
+    void deleteByHrid(Integer hrid);
+
+    Integer addRole(@Param("hrid") Integer hrid, @Param("rids") Integer[] rids);
 }
